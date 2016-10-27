@@ -3,3 +3,5 @@ import:
 - package: github.com/golang/protobuf
   subpackages:
   - proto
+- package: gopkg.in/redis.v5
+  version: ~5.0.1
