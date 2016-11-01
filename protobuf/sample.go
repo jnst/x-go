@@ -1,4 +1,4 @@
-package main
+package protobuf
 
 import (
 	"log"
@@ -7,7 +7,8 @@ import (
 	"github.com/jnst/go-world/protobuf/user"
 )
 
-func main() {
+// Check will be serialize and deserialize
+func Check() {
 	getUser := &user.GetUser{
 		UserId: proto.Int32(1),
 		Name:   proto.String("Taro"),

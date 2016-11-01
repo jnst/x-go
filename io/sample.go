@@ -1,4 +1,4 @@
-package main
+package io
 
 import (
 	"bufio"
@@ -8,14 +8,8 @@ import (
 	"os"
 )
 
-func main() {
-	// PrintFile("sample.txt")
-	PrintFile2("sample.txt")
-	// List()
-}
-
-// PrintFile reads specified file and print to stdout by using scanner
-func PrintFile(filename string) {
+// PrintFileByScanner reads specified file and print to stdout by using scanner
+func PrintFileByScanner(filename string) {
 	f, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
@@ -28,8 +22,8 @@ func PrintFile(filename string) {
 	}
 }
 
-// PrintFile2 reads specified file and print to stdout by using ioutil
-func PrintFile2(filename string) {
+// PrintFileByIOUtil reads specified file and print to stdout by using ioutil
+func PrintFileByIOUtil(filename string) {
 	b, err := ioutil.ReadFile(filename)
 	if err != nil {
 		log.Fatal(err)
