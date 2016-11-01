@@ -1,13 +1,16 @@
 package main
 
-import (
-	"github.com/jnst/go-world/io"
-	"github.com/jnst/go-world/protobuf"
-	"github.com/jnst/go-world/redis"
-)
+import "github.com/jnst/go-world/goroutine"
 
 func main() {
-	io.PrintFileByIOUtil("io/sample.txt")
-	protobuf.Check()
-	redis.Connect()
+	// goroutine.RunSay()
+	// goroutine.RunSum()
+	// goroutine.RunFibonacci()
+	// goroutine.ShowChannelCapacity()
+	// goroutine.RunTimeout()
+	goroutine.ShowCPUCoreCount()
+
+	// io.PrintFileByIOUtil("io/sample.txt")
+	// protobuf.Check()
+	// redis.Connect()
 }
