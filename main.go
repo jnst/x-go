@@ -1,6 +1,6 @@
 package main
 
-import "github.com/jnst/go-world/goroutine"
+import "github.com/jnst/go-world/std"
 
 func main() {
 	// goroutine.RunSay()
@@ -8,7 +8,8 @@ func main() {
 	// goroutine.RunFibonacci()
 	// goroutine.ShowChannelCapacity()
 	// goroutine.RunTimeout()
-	goroutine.ShowCPUCoreCount()
+	//goroutine.ShowCPUCoreCount()
+	std.Print()
 
 	// io.PrintFileByIOUtil("io/sample.txt")
 	// protobuf.Check()
