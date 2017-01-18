@@ -4,4 +4,4 @@ import:
   subpackages:
   - proto
 - package: gopkg.in/redis.v5
-  version: ~5.0.1
+  version: ^5.2.2

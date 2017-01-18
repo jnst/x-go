@@ -1,10 +1,16 @@
-hash: 047e2e2f57f847d40d8ee47694ff2f3d828b35dbf0441277efcd1edc50025c01
-updated: 2017-01-18T10:47:59.893435971+09:00
+hash: 63debbf3bca93fa9b96dbff90daee767dde1bd402a8d38e49fd26b295d44fc20
+updated: 2017-01-18T11:43:52.744887996+09:00
 imports:
 - name: github.com/golang/protobuf
   version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
   - proto
 - name: gopkg.in/redis.v5
-  version: b6bfe529a846fbb9a58c832ce71c61b6fde12c15
+  version: 8829ddcd8bdb333e477cc845946c4b9b2ef66280
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
 testImports: []
