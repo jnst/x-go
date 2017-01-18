@@ -1,8 +1,0 @@
-package user;
-
-message GetUser {
-  required int32  user_id = 1;
-  required string name    = 2;
-  required int32  lv      = 3;
-  required int32  exp     = 4;
-}

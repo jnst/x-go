@@ -1,4 +1,4 @@
-package io
+package main
 
 import (
 	"bufio"
@@ -31,7 +31,7 @@ func PrintFileByIOUtil(filename string) {
 	fmt.Println(string(b))
 }
 
-// List reads current directry files then print to stdout
+// List reads current directory files then print to stdout
 func List() {
 	name, err := os.Getwd()
 	if err != nil {

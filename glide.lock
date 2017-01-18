@@ -1,18 +1,10 @@
 hash: 047e2e2f57f847d40d8ee47694ff2f3d828b35dbf0441277efcd1edc50025c01
-updated: 2016-10-27T03:55:18.404566035+09:00
+updated: 2017-01-18T10:47:59.893435971+09:00
 imports:
 - name: github.com/golang/protobuf
-  version: 98fa357170587e470c5f27d3c3ea0947b71eb455
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
   - proto
-- name: gopkg.in/bsm/ratelimit.v1
-  version: db14e161995a5177acef654cb0dd785e8ee8bc22
 - name: gopkg.in/redis.v5
-  version: 80cf5d1652d5590c35edc6c2dc1aa354790e3010
-  subpackages:
-  - internal
-  - internal/consistenthash
-  - internal/hashtag
-  - internal/pool
-  - internal/proto
+  version: b6bfe529a846fbb9a58c832ce71c61b6fde12c15
 testImports: []
