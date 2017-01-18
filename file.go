@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-// PrintFileByScanner reads specified file and print to stdout by using scanner
+// PrintFileByScanner reads specified file and print to stdout by using scanner.
 func PrintFileByScanner(filename string) {
 	f, err := os.Open(filename)
 	if err != nil {
@@ -22,7 +22,7 @@ func PrintFileByScanner(filename string) {
 	}
 }
 
-// PrintFileByIOUtil reads specified file and print to stdout by using ioutil
+// PrintFileByIOUtil reads specified file and print to stdout by using ioutil.
 func PrintFileByIOUtil(filename string) {
 	b, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -31,8 +31,8 @@ func PrintFileByIOUtil(filename string) {
 	fmt.Println(string(b))
 }
 
-// List reads current directory files then print to stdout
-func List() {
+// List reads current directory files then print to stdout.
+func List() []string {
 	name, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
@@ -42,7 +42,5 @@ func List() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	for _, s := range names {
-		fmt.Println(s)
-	}
+	return names
 }
