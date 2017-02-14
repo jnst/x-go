@@ -30,7 +30,7 @@ func TestFactorial(t *testing.T) {
 	for _, test := range tests {
 		actual := Factorial(test.n)
 		if actual != test.expect {
-			t.Errorf("factorial(%v) = %v; expected %v", test.n, actual, test.expect)
+			t.Errorf("Factorial(%v) = %v; expected %v", test.n, actual, test.expect)
 		}
 	}
 }
