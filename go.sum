@@ -1,5 +1,3 @@
-github.com/apsdehal/go-logger v0.0.0-20180929234804-e1d9ff37593f h1:Hbc/GJzMOKWMjcWXBvSbt5zXObz60ttWLjDOB34nVC4=
-github.com/apsdehal/go-logger v0.0.0-20180929234804-e1d9ff37593f/go.mod h1:U3/8D6R9+bVpX0ORZjV+3mU9pQ86m7h1lESgJbXNvXA=
 github.com/aws/aws-sdk-go v1.17.13 h1:MJZwZoDI/UGp/6l0+cfZOQlWCqKmrHTuewhxfd5uQeE=
 github.com/aws/aws-sdk-go v1.17.13/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

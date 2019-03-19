@@ -1,7 +1,6 @@
 module github.com/jnst/go-world
 
 require (
-	github.com/apsdehal/go-logger v0.0.0-20180929234804-e1d9ff37593f // indirect
 	github.com/aws/aws-sdk-go v1.17.13
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-sql-driver/mysql v1.4.1
