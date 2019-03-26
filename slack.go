@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/nlopes/slack"
 	"log"
 	"os"
+
+	"github.com/nlopes/slack"
 )
 
 func main() {

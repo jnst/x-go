@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/jnst/go-world/logger"
 	"os"
+
+	"github.com/jnst/x-go/logger"
 )
 
 func main() {

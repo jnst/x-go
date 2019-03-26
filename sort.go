@@ -7,7 +7,7 @@ import (
 )
 
 type Hero struct {
-	ID string
+	ID   string
 	Name string
 	Born int64
 }

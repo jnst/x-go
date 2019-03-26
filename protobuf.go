@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/golang/protobuf/proto"
-	pb "github.com/jnst/go-world/internal"
+	pb "github.com/jnst/x-go/internal"
 )
 
 // Check will be serialize and deserialize

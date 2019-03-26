@@ -1,4 +1,4 @@
-module github.com/jnst/go-world
+module github.com/jnst/x-go
 
 require (
 	github.com/aws/aws-sdk-go v1.17.13
@@ -14,7 +14,7 @@ require (
 	github.com/magiconair/properties v0.0.0-20170113111004-b3b15ef068fd // indirect
 	github.com/mitchellh/mapstructure v0.0.0-20170125051937-db1efb556f84 // indirect
 	github.com/nlopes/slack v0.5.0
-	github.com/oklog/ulid v1.3.1 // indirect
+	github.com/oklog/ulid v1.3.1
 	github.com/onsi/ginkgo v1.7.0 // indirect
 	github.com/onsi/gomega v1.4.3 // indirect
 	github.com/pelletier/go-buffruneio v0.1.0 // indirect

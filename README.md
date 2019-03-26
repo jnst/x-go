@@ -1,6 +1,6 @@
-# go-world
+# x-go
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/jnst/go-world)](https://goreportcard.com/report/github.com/jnst/go-world)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jnst/x-go)](https://goreportcard.com/report/github.com/jnst/x-go)
 
 ### Run
 
