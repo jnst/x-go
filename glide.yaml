@@ -1,8 +1,0 @@
-package: github.com/jnst/go-world
-import:
-- package: github.com/golang/protobuf
-  subpackages:
-  - proto
-- package: gopkg.in/redis.v5
-  version: ^5.2.2
-- package: github.com/spf13/cobra
