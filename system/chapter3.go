@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/rand"
 	"io"
 	"io/ioutil"
 	"os"
@@ -9,6 +10,7 @@ import (
 // Chapter2 represents chapter-3 of go system programming book.
 type Chapter3 struct {}
 
+// Q1 copies the file.
 func (c Chapter3) Q1(dstPath, srcPath string) {
 	//copyWithIOUtil(dstPath, srcPath)
 	copyWithOS(dstPath, srcPath)
@@ -48,8 +50,46 @@ func close(f *os.File) {
 	}
 }
 
-func (c Chapter3) Q2() {
+// Q2 creates an appropriately sized file for testing.
+func (c Chapter3) Q2(path string, size int64) {
+	b := make([]byte, size)
+	r := rand.Reader
+	if _, err := r.Read(b); err != nil {
+		panic(err)
+	}
 
+	f, err := os.Create(path)
+	if err != nil {
+		panic(err)
+	}
+	defer close(f)
+
+	if _, err := io.CopyN(f, r, size); err != nil {
+		panic(err)
+	}
+
+	verify(path, size)
+}
+
+func verify(path string, size int64) {
+	b, err := ioutil.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+
+	var w io.Writer
+	var msg string
+	if int64(len(b)) == size {
+		w = os.Stdout
+		msg = "success"
+	} else {
+		w = os.Stderr
+		msg = "failure"
+	}
+
+	if _, err := w.Write([]byte(msg)); err != nil {
+		panic(err)
+	}
 }
 
 func (c Chapter3) Q3() {
@@ -70,5 +110,6 @@ func (c Chapter3) Q6() {
 
 func main() {
 	c := Chapter3{}
-	c.Q1("testdata/new.txt", "testdata/old.txt")
+	//c.Q1("testdata/new.txt", "testdata/old.txt")
+	c.Q2("testdata/binary.txt", 1024)
 }
