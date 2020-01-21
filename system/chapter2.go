@@ -10,6 +10,8 @@ import (
 	"net"
 	"net/http"
 	"os"
+
+	"github.com/jnst/x-go/system/server"
 )
 
 // Chapter2 represents chapter-2 of go system programming book.
@@ -30,10 +32,11 @@ func (c Chapter2) Q2() {
 }
 
 func (c Chapter2) Q3() {
-	run()
+	s := server.NewServer(c.gzipHandler)
+	s.Run()
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func (c Chapter2) gzipHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Encoding", "gzip")
 	w.Header().Set("Content-Type", "application/json")
 	source := map[string]string{
@@ -51,13 +54,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	if err := gzipWriter.Close(); err != nil {
-		panic(err)
-	}
-}
-
-func run() {
-	http.HandleFunc("/", handler)
-	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
 }
