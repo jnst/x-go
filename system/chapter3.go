@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/jnst/x-go/system/server"
 )
@@ -154,12 +155,32 @@ func (c Chapter3) zipHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (c Chapter3) Q5() {
-
+// Q5 implements io.CopyN.
+func (c Chapter3) Q5(dst io.Writer, src io.Reader, n int64) (written int64, err error) {
+	r := io.LimitReader(src, n)
+	return io.Copy(dst, r)
 }
 
+// Q6 prints "ASCII".
 func (c Chapter3) Q6() {
+	computer := strings.NewReader("COMPUTER")
+	system := strings.NewReader("SYSTEM")
+	programming := strings.NewReader("PROGRAMMING")
 
+	var stream io.Reader
+
+	// write code here
+	a := io.NewSectionReader(programming, 5, 1)
+	s := io.NewSectionReader(system, 0, 1)
+	cc := io.NewSectionReader(computer, 0, 1)
+	i1 := io.NewSectionReader(programming, 8, 1)
+	i2 := io.NewSectionReader(programming, 8, 1)
+
+	stream = io.MultiReader(a, s, cc, i1, i2)
+
+	if _, err := io.Copy(os.Stdout, stream); err != nil {
+		panic(err)
+	}
 }
 
 func main() {
@@ -167,5 +188,6 @@ func main() {
 	//c.Q1("testdata/new.txt", "testdata/old.txt")
 	//c.Q2("testdata/binary.txt", 1024)
 	//c.Q3()
-	c.Q4()
+	//c.Q4()
+	c.Q6()
 }

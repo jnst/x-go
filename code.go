@@ -35,7 +35,7 @@ func SumEachLevelDomain(pairs []Pair) map[string]int {
 		levelDomains := strings.Split(pair.K, ".")
 		size := len(levelDomains)
 		for i := range levelDomains {
-			domain := levelDomains[size - i - 1:]
+			domain := levelDomains[size-i-1:]
 			target := strings.Join(domain, ".")
 			count, ok := m[target]
 			if ok {
