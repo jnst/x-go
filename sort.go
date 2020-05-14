@@ -12,7 +12,12 @@ type Hero struct {
 	Born int64
 }
 
-func main() {
+type YearMonth struct {
+	Year  int
+	Month int
+}
+
+func printSortedHeroes() {
 	t1 := time.Date(2001, 5, 31, 0, 0, 0, 0, time.UTC)
 	t2 := time.Date(1999, 4, 1, 0, 0, 0, 0, time.UTC)
 	t3 := time.Date(2015, 2, 21, 0, 0, 0, 0, time.UTC)
@@ -32,6 +37,36 @@ func main() {
 	})
 
 	for _, hero := range heroes {
-		fmt.Println(hero)
+		fmt.Printf("%+v\n", hero)
 	}
+}
+
+func printSortedYearMonths() {
+	yms := []YearMonth{
+		{Year: 2020, Month: 8},
+		{Year: 2020, Month: 4},
+		{Year: 1999, Month: 7},
+		{Year: 2032, Month: 1},
+		{Year: 2005, Month: 1},
+		{Year: 2020, Month: 6},
+	}
+
+	sort.Slice(yms, func(i, j int) bool {
+		if yms[i].Year < yms[j].Year {
+			return true
+		}
+		if yms[i].Year == yms[j].Year && yms[i].Month < yms[j].Month {
+			return true
+		}
+		return false
+	})
+
+	for _, ym := range yms {
+		fmt.Printf("%+v\n", ym)
+	}
+}
+
+func main() {
+	printSortedHeroes()
+	printSortedYearMonths()
 }
