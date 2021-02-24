@@ -1,10 +1,10 @@
-package main
+package protobuf
 
 import (
 	"log"
 
 	"github.com/golang/protobuf/proto"
-	pb "github.com/jnst/x-go/internal"
+	pb "github.com/jnst/x-go/protobuf/internal"
 )
 
 // Check will be serialize and deserialize
