@@ -15,7 +15,7 @@ import (
 )
 
 // Chapter2 represents chapter-3 of go system programming book.
-type Chapter3 struct {}
+type Chapter3 struct{}
 
 // Q1 copies the file.
 func (c Chapter3) Q1(dstPath, srcPath string) {

@@ -11,7 +11,7 @@ func CreateLogger() *zap.SugaredLogger {
 	level.SetLevel(zapcore.DebugLevel)
 	//zapcore.
 	config := zap.Config{
-		Level: level,
+		Level:    level,
 		Encoding: "console",
 		EncoderConfig: zapcore.EncoderConfig{
 			TimeKey:        "Time",
@@ -24,7 +24,7 @@ func CreateLogger() *zap.SugaredLogger {
 			EncodeDuration: zapcore.StringDurationEncoder,
 			EncodeCaller:   zapcore.ShortCallerEncoder,
 		},
-		OutputPaths: []string{"stdout"},
+		OutputPaths:      []string{"stdout"},
 		ErrorOutputPaths: []string{"stderr"},
 	}
 	logger, _ := config.Build()
