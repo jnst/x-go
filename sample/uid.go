@@ -9,14 +9,7 @@ import (
 	"github.com/rs/xid"
 )
 
-func main() {
-	fmt.Printf("========== XID ==========\n\n")
-	printXID()
-	fmt.Printf("\n========== ULID ==========\n\n")
-	printULID()
-}
-
-func printXID() {
+func PrintXID() {
 	for i := 0; i < 5; i++ {
 		guid := xid.New()
 		fmt.Printf("%s: %d\n", guid.String(), guid.Counter())
@@ -31,7 +24,7 @@ func printXID() {
 	}
 }
 
-func printULID() {
+func PrintULID() {
 	t := time.Unix(1000000, 0)
 	entropy := ulid.Monotonic(rand.New(rand.NewSource(t.UnixNano())), 0)
 

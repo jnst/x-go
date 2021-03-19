@@ -1,4 +1,4 @@
-package sample
+package std
 
 import "fmt"
 
@@ -23,7 +23,7 @@ func Hello(i I) {
 	fmt.Printf("hello %s\n", i.M())
 }
 
-func main() {
-	Hello(T{name: "world"})
-	fmt.Println(T{name: "world"}.String())
-}
+//func main() {
+//	Hello(T{name: "world"})
+//	fmt.Println(T{name: "world"}.String())
+//}

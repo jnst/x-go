@@ -7,7 +7,7 @@ import (
 	"github.com/nlopes/slack"
 )
 
-func main() {
+func Post() {
 	url, ok := os.LookupEnv("WEBHOOK_URL")
 	if !ok {
 		log.Fatal("missing WEBHOOK_URL")

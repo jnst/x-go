@@ -1,4 +1,4 @@
-package sample
+package std
 
 import (
 	"fmt"

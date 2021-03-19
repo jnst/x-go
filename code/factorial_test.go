@@ -1,6 +1,10 @@
-package main
+package code_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/jnst/x-go/code"
+)
 
 func TestFactorial(t *testing.T) {
 	type NumberTest struct {
@@ -28,7 +32,7 @@ func TestFactorial(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		actual := Factorial(test.n)
+		actual := code.Factorial(test.n)
 		if actual != test.expect {
 			t.Errorf("Factorial(%v) = %v; expected %v", test.n, actual, test.expect)
 		}

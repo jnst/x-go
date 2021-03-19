@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func welcome() {
 	var a, b, c int
 	var s string
 	_, _ = fmt.Scanf("%d", &a)

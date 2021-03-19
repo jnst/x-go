@@ -12,7 +12,7 @@ type Result struct {
 	count int
 }
 
-func main() {
+func run() {
 	name := "root"
 	password := "root"
 	endpoint := "localhost"

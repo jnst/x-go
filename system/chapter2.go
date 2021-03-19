@@ -123,12 +123,12 @@ func (c Chapter2) Connect() {
 	}
 }
 
-func main() {
-	c := Chapter2{}
-	fmt.Println("--- Chapter2 Q1 ---")
-	c.Q1()
-	fmt.Println("--- Chapter2 Q2 ---")
-	c.Q2()
-	fmt.Println("--- Chapter2 Q3 ---")
-	c.Q3()
-}
+//func main() {
+//	c := Chapter2{}
+//	fmt.Println("--- Chapter2 Q1 ---")
+//	c.Q1()
+//	fmt.Println("--- Chapter2 Q2 ---")
+//	c.Q2()
+//	fmt.Println("--- Chapter2 Q3 ---")
+//	c.Q3()
+//}

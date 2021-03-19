@@ -1,14 +1,13 @@
-package sample_test
+package std_test
 
 import (
+	"github.com/jnst/x-go/std"
 	"testing"
-
-	"github.com/jnst/x-go/sample"
 )
 
 func TestList(t *testing.T) {
 	expect := "file.go"
-	for _, v := range sample.List() {
+	for _, v := range std.List() {
 		if v == expect {
 			return
 		}

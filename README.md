@@ -5,7 +5,7 @@
 ### Run
 
 ```
-$ go run factorial.go -n 2
+$ go run code/factorial.go -n 10
 ```
 
 ### Test

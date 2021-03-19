@@ -1,6 +1,10 @@
-package main
+package code_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/jnst/x-go/code"
+)
 
 func TestHash(t *testing.T) {
 
@@ -17,7 +21,7 @@ func TestHash(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		got := Hash(test.in)
+		got := code.Hash(test.in)
 		if got != test.out {
 			t.Errorf("Hash(%s) = %d want %d", test.in, got, test.out)
 		}

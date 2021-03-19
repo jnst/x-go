@@ -1,15 +1,19 @@
-package main
+package code_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/jnst/x-go/code"
+)
 
 func TestSumEachLevelDomain(t *testing.T) {
-	pairs := []Pair{
+	pairs := []code.Pair{
 		{"news.example.com", 100},
 		{"example.com", 220},
 		{"google.com", 500},
 		{"example.jp", 30},
 	}
-	output := SumEachLevelDomain(pairs)
+	output := code.SumEachDomainHierarchy(pairs)
 
 	expect := 6
 	if len(output) != expect {
