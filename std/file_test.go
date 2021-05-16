@@ -1,8 +1,9 @@
 package std_test
 
 import (
-	"github.com/jnst/x-go/std"
 	"testing"
+
+	"github.com/jnst/x-go/std"
 )
 
 func TestList(t *testing.T) {
