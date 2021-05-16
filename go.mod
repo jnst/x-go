@@ -34,4 +34,4 @@ require (
 	gopkg.in/redis.v5 v5.2.9
 )
 
-go 1.13
+go 1.16
