@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/pkg/errors"
+
 	"github.com/jnst/x-go/system/server"
 )
 
@@ -19,7 +21,7 @@ type Chapter3 struct{}
 
 // Q1 copies the file.
 func (c Chapter3) Q1(dstPath, srcPath string) {
-	//copyWithIOUtil(dstPath, srcPath)
+	copyWithIOUtil(dstPath, srcPath)
 	copyWithOS(dstPath, srcPath)
 }
 
@@ -28,7 +30,8 @@ func copyWithIOUtil(dstPath, srcPath string) {
 	if err != nil {
 		panic(err)
 	}
-	if err := ioutil.WriteFile(dstPath, b, 0644); err != nil {
+
+	if err := ioutil.WriteFile(dstPath, b, 0o600); err != nil {
 		panic(err)
 	}
 }
@@ -40,7 +43,7 @@ func copyWithOS(dstPath, srcPath string) {
 	}
 	defer rf.Close()
 
-	wf, err := os.OpenFile(dstPath, os.O_RDWR, 0644)
+	wf, err := os.OpenFile(dstPath, os.O_RDWR, 0o600)
 	if err != nil {
 		panic(err)
 	}
@@ -55,6 +58,7 @@ func copyWithOS(dstPath, srcPath string) {
 func (c Chapter3) Q2(path string, size int64) {
 	b := make([]byte, size)
 	r := rand.Reader
+
 	if _, err := r.Read(b); err != nil {
 		panic(err)
 	}
@@ -78,8 +82,11 @@ func verify(path string, size int64) {
 		panic(err)
 	}
 
-	var w io.Writer
-	var msg string
+	var (
+		w   io.Writer
+		msg string
+	)
+
 	if int64(len(b)) == size {
 		w = os.Stdout
 		msg = "success"
@@ -131,6 +138,7 @@ func (c Chapter3) Q4() {
 
 func (c Chapter3) zipHandler(w http.ResponseWriter, r *http.Request) {
 	const FILENAME = "ascii_sample.zip"
+
 	w.Header().Set("Content-Type", "application/zip")
 	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", FILENAME))
 
@@ -150,15 +158,22 @@ func (c Chapter3) zipHandler(w http.ResponseWriter, r *http.Request) {
 	if err := zipWriter.Flush(); err != nil {
 		panic(err)
 	}
+
 	if err := zipWriter.Close(); err != nil {
 		panic(err)
 	}
 }
 
 // Q5 implements io.CopyN.
-func (c Chapter3) Q5(dst io.Writer, src io.Reader, n int64) (written int64, err error) {
+func (c Chapter3) Q5(dst io.Writer, src io.Reader, n int64) (int64, error) {
 	r := io.LimitReader(src, n)
-	return io.Copy(dst, r)
+
+	written, err := io.Copy(dst, r)
+	if err != nil {
+		return written, errors.Wrap(err, err.Error())
+	}
+
+	return written, nil
 }
 
 // Q6 prints "ASCII".
@@ -183,11 +198,11 @@ func (c Chapter3) Q6() {
 	}
 }
 
-func main() {
+/*func main() {
 	c := Chapter3{}
-	//c.Q1("testdata/new.txt", "testdata/old.txt")
-	//c.Q2("testdata/binary.txt", 1024)
-	//c.Q3()
-	//c.Q4()
+	c.Q1("testdata/new.txt", "testdata/old.txt")
+	c.Q2("testdata/binary.txt", 1024)
+	c.Q3()
+	c.Q4()
 	c.Q6()
-}
+}*/

@@ -25,7 +25,6 @@ linters:
     - exhaustive
     - exhaustivestruct
     - exportloopref
-    - forbidigo
     - forcetypeassert
     - funlen
     - gci
@@ -53,7 +52,6 @@ linters:
     - nakedret
     - nestif
     - nilerr
-    - nlreturn
     - noctx
     - nolintlint
     - paralleltest
@@ -74,9 +72,19 @@ linters:
     - whitespace
     - wrapcheck
     - wsl
+
     # Don't enable
     # - gochecknoglobals グローバル変数で宣言した方がコード量が少なくて済むため
-    # - gomnd サンプルコードリポジトリなのでマジック変数を許可
+    # - nlreturn         無意味な空行なので不要
+
+    # Don't enable in this sample code repository
+    # - forbidigo デバッグ出力許可
+    # - gomnd     マジック変数許可
+
 issues:
   max-issues-per-linter: 0
   max-same-issues: 0
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/jnst/x-go
