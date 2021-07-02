@@ -1,14 +1,20 @@
-package main
+package game_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/jnst/x-go/game"
+)
 
 func TestCalcGem(t *testing.T) {
+	t.Parallel()
+
 	type AmountTest struct {
 		in  int
 		out int
 	}
 
-	var tests = []AmountTest{
+	tests := []AmountTest{
 		{-1, 0},
 		{0, 0},
 		{1, 1},
@@ -22,7 +28,9 @@ func TestCalcGem(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		actual := CalcGem(test.in)
+		c := game.NewCalculator()
+		actual := c.CalcGem(test.in)
+
 		if actual != test.out {
 			t.Errorf("CalcGem(%v) = %v; expected %v", test.in, actual, test.out)
 		}

@@ -41,7 +41,6 @@ linters:
     - gofumpt
     - goheader
     - goimports
-    - gomnd
     - gomoddirectives
     - gomodguard
     - goprintffuncname
@@ -77,6 +76,7 @@ linters:
     - wsl
     # Don't enable
     # - gochecknoglobals グローバル変数で宣言した方がコード量が少なくて済むため
+    # - gomnd サンプルコードリポジトリなのでマジック変数を許可
 issues:
   max-issues-per-linter: 0
   max-same-issues: 0
