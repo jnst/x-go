@@ -7,6 +7,8 @@ import (
 )
 
 func TestSumEachLevelDomain(t *testing.T) {
+	t.Parallel()
+
 	pairs := []code.Pair{
 		{"news.example.com", 100},
 		{"example.com", 220},

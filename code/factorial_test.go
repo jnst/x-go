@@ -7,6 +7,8 @@ import (
 )
 
 func TestFactorial(t *testing.T) {
+	t.Parallel()
+
 	type NumberTest struct {
 		n      int64
 		expect int64

@@ -7,6 +7,8 @@ import (
 )
 
 func TestHash(t *testing.T) {
+	t.Parallel()
+
 	type TextTest struct {
 		in  string
 		out uint32

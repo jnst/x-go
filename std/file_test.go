@@ -7,6 +7,8 @@ import (
 )
 
 func TestList(t *testing.T) {
+	t.Parallel()
+
 	expect := "file.go"
 	for _, v := range std.List() {
 		if v == expect {
