@@ -1,6 +1,7 @@
-package sample
+package dynamodb
 
 import (
+	"errors"
 	"fmt"
 	"os"
 
@@ -8,7 +9,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
-	"github.com/pkg/errors"
 )
 
 func createServiceClient() (*dynamodb.DynamoDB, error) {
@@ -19,7 +19,7 @@ func createServiceClient() (*dynamodb.DynamoDB, error) {
 		},
 	})
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to create new session: %w", err)
 	}
 
 	svc := dynamodb.New(sess)
@@ -30,7 +30,7 @@ func createServiceClient() (*dynamodb.DynamoDB, error) {
 func prepareTable(svc *dynamodb.DynamoDB, tableName string) error {
 	ok, err := existsTable(svc, tableName)
 	if err != nil {
-		return errors.Wrap(err, "failed to describe table")
+		return fmt.Errorf("failed to describe table: %w", err)
 	}
 
 	if ok {
@@ -40,13 +40,14 @@ func prepareTable(svc *dynamodb.DynamoDB, tableName string) error {
 
 	err = createTable(svc, tableName)
 	if err != nil {
-		return errors.Wrap(err, "failed to create table")
+		return fmt.Errorf("failed to create table: %w", err)
 	}
 
 	input := &dynamodb.DescribeTableInput{TableName: aws.String(tableName)}
+
 	err = svc.WaitUntilTableExists(input)
 	if err != nil {
-		return errors.Wrap(err, "failed to wait until table exists")
+		return fmt.Errorf("failed to wait until table exists: %w", err)
 	}
 
 	fmt.Printf("%s table has been created\n", tableName)
@@ -56,9 +57,11 @@ func prepareTable(svc *dynamodb.DynamoDB, tableName string) error {
 
 func existsTable(svc *dynamodb.DynamoDB, tableName string) (bool, error) {
 	input := &dynamodb.DescribeTableInput{TableName: aws.String(tableName)}
+
 	output, err := svc.DescribeTable(input)
 	if err != nil {
-		if aerr, ok := err.(awserr.Error); ok {
+		var aerr awserr.Error
+		if errors.As(err, &aerr) {
 			switch aerr.Code() {
 			case dynamodb.ErrCodeResourceNotFoundException:
 				return false, nil
@@ -94,12 +97,11 @@ func createTable(svc *dynamodb.DynamoDB, tableName string) error {
 			StreamEnabled:  aws.Bool(true),
 			StreamViewType: aws.String("NEW_AND_OLD_IMAGES"),
 		},
-		TableName: aws.String("builds"),
+		TableName: aws.String(tableName),
 	}
 
-	_, err := svc.CreateTable(input)
-	if err != nil {
-		return err
+	if _, err := svc.CreateTable(input); err != nil {
+		return fmt.Errorf("failed to create table: %w", err)
 	}
 
 	return nil
@@ -114,8 +116,7 @@ func printTables(svc *dynamodb.DynamoDB) {
 
 	fmt.Println("Tables:")
 
-	size := len(output.TableNames)
-	if size <= 0 {
+	if len(output.TableNames) == 0 {
 		fmt.Println("  not found")
 		return
 	}
@@ -125,7 +126,7 @@ func printTables(svc *dynamodb.DynamoDB) {
 	}
 }
 
-func main() {
+func Execute() {
 	const TableName = "builds"
 
 	svc, err := createServiceClient()

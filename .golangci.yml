@@ -23,7 +23,6 @@ linters:
     - durationcheck
     - errorlint
     - exhaustive
-    - exhaustivestruct
     - exportloopref
     - forcetypeassert
     - funlen
@@ -74,8 +73,10 @@ linters:
     - wsl
 
     # Don't enable
+    # - exhaustivestruct structには任意フィールドもあるので不要
     # - gochecknoglobals グローバル変数で宣言した方がコード量が少なくて済むため
     # - nlreturn         無意味な空行なので不要
+
 
     # Don't enable in this sample code repository
     # - forbidigo デバッグ出力許可
