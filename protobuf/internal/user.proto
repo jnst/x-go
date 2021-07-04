@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package internal;
+option go_package = "github.com/jnst/x-go/protobuf/internal";
 
 message User {
   int32  user_id = 1;

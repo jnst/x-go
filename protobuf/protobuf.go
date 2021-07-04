@@ -3,7 +3,7 @@ package protobuf
 import (
 	"log"
 
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 
 	pb "github.com/jnst/x-go/protobuf/internal"
 )

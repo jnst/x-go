@@ -14,6 +14,7 @@ require (
 	github.com/rs/xid v1.2.1
 	github.com/spf13/cobra v1.2.1
 	go.uber.org/zap v1.17.0
+	google.golang.org/protobuf v1.26.0
 	gopkg.in/redis.v5 v5.2.9
 )
 
