@@ -6,7 +6,7 @@ import (
 	redis "gopkg.in/redis.v5"
 )
 
-// Connect is sample code
+// Connect is sample code.
 func Connect() {
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",

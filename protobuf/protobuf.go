@@ -8,7 +8,7 @@ import (
 	pb "github.com/jnst/x-go/protobuf/internal"
 )
 
-// Check will be serialize and deserialize
+// Check will be serialize and deserialize.
 func Check() {
 	user := &pb.User{
 		UserId: 1,

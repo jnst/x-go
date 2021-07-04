@@ -10,22 +10,6 @@ type Pair struct {
 	V int
 }
 
-// input:
-// [
-//   ("news.example.com", 100),
-//   ("example.com", 220),
-//   ("google.com", 500),
-//   ("example.jp", 30)
-// ]
-// output:
-// {
-//   "com": 820,
-//   "example.com": 320,
-//   "news.example.com": 100,
-//   "google.com": 500,
-//   "jp": 30,
-//   "example.jp": 30,
-// }
 func SumEachDomainHierarchy(pairs []Pair) map[string]int {
 	m := map[string]int{}
 

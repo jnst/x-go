@@ -13,7 +13,7 @@ func say(s string) {
 	}
 }
 
-// RunSay is multi thread sample
+// RunSay is multi thread sample.
 func RunSay() {
 	go say("world")
 	say("hello")
@@ -27,7 +27,7 @@ func sum(a []int, c chan int) {
 	c <- total
 }
 
-// RunSum is channel sample
+// RunSum is channel sample.
 func RunSum() {
 	a := []int{7, 2, 8, -9, 4, 0}
 	c := make(chan int)
@@ -38,7 +38,7 @@ func RunSum() {
 	fmt.Println(x, y, x+y)
 }
 
-// Fail occurs deadlock
+// Fail occurs deadlock.
 func Fail() {
 	c := make(chan int, 1)
 	c <- 1
@@ -56,7 +56,7 @@ func fibonacci(n int, c chan int) {
 	close(c)
 }
 
-// RunFibonacci is fibonacci sample
+// RunFibonacci is fibonacci sample.
 func RunFibonacci() {
 	c := make(chan int, 10)
 	go fibonacci(cap(c), c)
@@ -66,7 +66,7 @@ func RunFibonacci() {
 	}
 }
 
-// ShowChannelCapacity shows channel capacity
+// ShowChannelCapacity shows channel capacity.
 func ShowChannelCapacity() {
 	c1 := make(chan int)
 	c2 := make(chan int, 10)
@@ -75,7 +75,7 @@ func ShowChannelCapacity() {
 	fmt.Println("make(chan int, 10) ->", cap(c2))
 }
 
-// RunTimeout is timeout sample
+// RunTimeout is timeout sample.
 func RunTimeout() {
 	println("start..")
 
@@ -98,7 +98,7 @@ func RunTimeout() {
 	println(<-o)
 }
 
-// ShowCPUCoreCount shows cpu core count
+// ShowCPUCoreCount shows cpu core count.
 func ShowCPUCoreCount() {
 	println(runtime.NumCPU)
 }

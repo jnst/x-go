@@ -5,11 +5,11 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-// MustCreateLogger creates logger
+// MustCreateLogger creates logger.
 func CreateLogger() *zap.SugaredLogger {
 	level := zap.NewAtomicLevel()
 	level.SetLevel(zapcore.DebugLevel)
-	//zapcore.
+	// zapcore
 	config := zap.Config{
 		Level:    level,
 		Encoding: "console",
