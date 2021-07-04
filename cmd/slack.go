@@ -6,10 +6,6 @@ import (
 	"github.com/jnst/x-go/sample"
 )
 
-func init() {
-	rootCmd.AddCommand(slackCmd)
-}
-
 var slackCmd = &cobra.Command{
 	Use:   "slack",
 	Short: "Send slack message",

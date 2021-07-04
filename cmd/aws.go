@@ -6,11 +6,6 @@ import (
 	"github.com/jnst/x-go/aws/dynamodb"
 )
 
-func init() {
-	rootCmd.AddCommand(awsCmd)
-	awsCmd.AddCommand(dynamodbCmd)
-}
-
 var awsCmd = &cobra.Command{
 	Use:   "aws",
 	Short: "Show the AWS sub commands",

@@ -8,10 +8,6 @@ import (
 	"github.com/jnst/x-go/solana"
 )
 
-func init() {
-	rootCmd.AddCommand(solanaCmd)
-}
-
 var solanaCmd = &cobra.Command{
 	Use:   "solana",
 	Short: "Execute vanity address generator",

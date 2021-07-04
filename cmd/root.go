@@ -12,6 +12,16 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
+	awsCmd.AddCommand(dynamodbCmd)
+	rootCmd.AddCommand(
+		awsCmd,
+		factorialCmd,
+		slackCmd,
+		solanaCmd,
+		sortCmd,
+		uidCmd,
+	)
+
 	if err := rootCmd.Execute(); err != nil {
 		_, _ = fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

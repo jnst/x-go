@@ -6,10 +6,6 @@ import (
 	"github.com/jnst/x-go/sample"
 )
 
-func init() {
-	rootCmd.AddCommand(uidCmd)
-}
-
 var uidCmd = &cobra.Command{
 	Use:   "uid",
 	Short: "Print uid sample code",

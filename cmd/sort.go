@@ -8,10 +8,6 @@ import (
 	"github.com/jnst/x-go/std"
 )
 
-func init() {
-	rootCmd.AddCommand(sortCmd)
-}
-
 var sortCmd = &cobra.Command{
 	Use:   "sort",
 	Short: "Print sort sample",

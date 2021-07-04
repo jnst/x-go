@@ -10,10 +10,6 @@ import (
 	"github.com/jnst/x-go/code"
 )
 
-func init() {
-	rootCmd.AddCommand(factorialCmd)
-}
-
 var factorialCmd = &cobra.Command{
 	Use:   "factorial",
 	Short: "Execute factorial function",
