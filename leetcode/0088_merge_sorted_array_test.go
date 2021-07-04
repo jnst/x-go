@@ -9,17 +9,22 @@ import (
 )
 
 func TestMerge(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums1 []int
 		m     int
 		nums2 []int
 		n     int
 	}
-	tests := map[string]struct {
+
+	tests := []struct {
+		name string
 		args args
 		want []int
 	}{
-		"Example 1": {
+		{
+			name: "Example 1",
 			args: args{
 				nums1: []int{1, 2, 3, 0, 0, 0},
 				m:     3,
@@ -28,7 +33,8 @@ func TestMerge(t *testing.T) {
 			},
 			want: []int{1, 2, 2, 3, 5, 6},
 		},
-		"Example 2": {
+		{
+			name: "Example 2",
 			args: args{
 				nums1: []int{1},
 				m:     1,
@@ -37,7 +43,8 @@ func TestMerge(t *testing.T) {
 			},
 			want: []int{1},
 		},
-		"index out of range": {
+		{
+			name: "index out of range",
 			args: args{
 				nums1: []int{0},
 				m:     0,
@@ -47,8 +54,11 @@ func TestMerge(t *testing.T) {
 			want: []int{1},
 		},
 	}
-	for name, tt := range tests {
-		t.Run(name, func(t *testing.T) {
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
 			got := tt.args.nums1
 			leetcode.Merge(got, tt.args.m, tt.args.nums2, tt.args.n)
 			if diff := cmp.Diff(got, tt.want); diff != "" {
