@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 
+	// valid usage.
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -27,6 +28,13 @@ func Execute() {
 
 	rows, err := db.Query("SELECT COUNT(*) FROM users")
 	if err != nil {
+		log.Print(err)
+		return
+	}
+
+	defer rows.Close()
+
+	if rows.Err() != nil {
 		log.Print(err)
 		return
 	}
