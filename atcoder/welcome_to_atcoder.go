@@ -1,8 +1,8 @@
-package main
+package atcoder
 
 import "fmt"
 
-func welcome() {
+func Welcome() {
 	var (
 		a, b, c int
 		s string

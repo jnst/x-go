@@ -11,7 +11,7 @@ type Result struct {
 	count int
 }
 
-func run() {
+func Execute() {
 	name := "root"
 	password := "root"
 	endpoint := "localhost"
@@ -24,7 +24,7 @@ func run() {
 	}
 	defer db.Close()
 
-	rows, err := db.Query("SELECT COUNT(*) FROM users") //
+	rows, err := db.Query("SELECT COUNT(*) FROM users")
 	if err != nil {
 		log.Print(err)
 		return

@@ -14,8 +14,10 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	awsCmd.AddCommand(dynamodbCmd)
 	rootCmd.AddCommand(
+		atcoderCmd,
 		awsCmd,
 		factorialCmd,
+		mysqlCmd,
 		slackCmd,
 		solanaCmd,
 		sortCmd,

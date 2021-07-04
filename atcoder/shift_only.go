@@ -1,10 +1,10 @@
-package main
+package atcoder
 
 import (
 	"fmt"
 )
 
-func main() {
+func ShiftOnly() {
 	var size, n int
 	_, _ = fmt.Scan(&size)
 
