@@ -1,8 +1,9 @@
-.PHONY: fmt test
+.PHONY: fmt lint test
 
 fmt:
 	go fmt ./...
-	goimports -w -local github.com/jnst/x-go .
+	gofumpt -w .
+	gci -w -local github.com/jnst/x-go .
 
 lint:
 	golangci-lint run

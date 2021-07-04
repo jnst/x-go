@@ -14,7 +14,7 @@ func TestFactorial(t *testing.T) {
 		expect int64
 	}
 
-	var tests = []NumberTest{
+	tests := []NumberTest{
 		{0, 1},
 		{1, 1},
 		{2, 2},

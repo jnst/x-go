@@ -5,7 +5,7 @@ import "fmt"
 func Welcome() {
 	var (
 		a, b, c int
-		s string
+		s       string
 	)
 
 	_, _ = fmt.Scanf("%d", &a)
