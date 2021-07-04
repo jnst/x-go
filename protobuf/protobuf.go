@@ -16,14 +16,14 @@ func Check() {
 		Lv:     1,
 		Exp:    0,
 	}
+
 	data, err := proto.Marshal(user)
 	if err != nil {
 		log.Fatal("marshaling error: ", err)
 	}
 
 	newUser := &pb.User{}
-	err = proto.Unmarshal(data, newUser)
-	if err != nil {
+	if err = proto.Unmarshal(data, newUser); err != nil {
 		log.Fatal("unmarshaling error: ", err)
 	}
 

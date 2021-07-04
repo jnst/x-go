@@ -32,10 +32,10 @@ func run() {
 
 	for rows.Next() {
 		result := Result{}
-		err := rows.Scan(&result.count)
-		if err != nil {
+		if err := rows.Scan(&result.count); err != nil {
 			log.Fatal(err)
 		}
+
 		log.Printf("count: %v", result.count)
 	}
 }

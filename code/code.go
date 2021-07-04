@@ -27,10 +27,12 @@ func ThreeSum(nums []int) [][]int {
 			if i == j {
 				continue
 			}
+
 			for k, n3 := range nums {
 				if i == k || j == k {
 					continue
 				}
+
 				target := nums[i] + nums[j] + nums[k]
 				if target == 0 {
 					arr := []int{n1, n2, n3}

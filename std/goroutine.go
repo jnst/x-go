@@ -31,6 +31,7 @@ func sum(a []int, c chan int) {
 func RunSum() {
 	a := []int{7, 2, 8, -9, 4, 0}
 	c := make(chan int)
+
 	go sum(a[:len(a)/2], c)
 	go sum(a[len(a)/2:], c)
 	x, y := <-c, <-c
@@ -59,6 +60,7 @@ func fibonacci(n int, c chan int) {
 func RunFibonacci() {
 	c := make(chan int, 10)
 	go fibonacci(cap(c), c)
+
 	for i := range c {
 		fmt.Println(i)
 	}
@@ -68,6 +70,7 @@ func RunFibonacci() {
 func ShowChannelCapacity() {
 	c1 := make(chan int)
 	c2 := make(chan int, 10)
+
 	fmt.Println("make(chan int)     ->", cap(c1))
 	fmt.Println("make(chan int, 10) ->", cap(c2))
 }
@@ -75,8 +78,10 @@ func ShowChannelCapacity() {
 // RunTimeout is timeout sample
 func RunTimeout() {
 	println("start..")
+
 	c := make(chan int)
 	o := make(chan bool)
+
 	go func() {
 		for {
 			select {
@@ -85,6 +90,7 @@ func RunTimeout() {
 			case <-time.After(5 * time.Second):
 				println("timeout")
 				o <- true
+
 				break
 			}
 		}

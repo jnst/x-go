@@ -9,6 +9,7 @@ func main() {
 	_, _ = fmt.Scan(&size)
 
 	var ns []int
+
 	for i := 0; i < size; i++ {
 		_, _ = fmt.Scan(&n)
 		ns = append(ns, n)
@@ -24,10 +25,12 @@ func loop(ns []int, count int) ([]int, int) {
 	}
 
 	arr := make([]int, 0, len(ns))
+
 	for _, n := range ns {
 		if isOdd(n) {
 			return nil, count
 		}
+
 		arr = append(arr, n/2)
 	}
 
@@ -38,5 +41,6 @@ func isOdd(n int) bool {
 	if n%2 != 0 {
 		return true
 	}
+
 	return false
 }

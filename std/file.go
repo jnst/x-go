@@ -28,6 +28,7 @@ func PrintFileByIOUtil(filename string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Println(string(b))
 }
 
@@ -37,10 +38,16 @@ func List() []string {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	f, err := os.Open(name)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	names, err := f.Readdirnames(0)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	return names
 }

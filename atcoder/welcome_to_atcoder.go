@@ -3,8 +3,11 @@ package main
 import "fmt"
 
 func welcome() {
-	var a, b, c int
-	var s string
+	var (
+		a, b, c int
+		s string
+	)
+
 	_, _ = fmt.Scanf("%d", &a)
 	_, _ = fmt.Scanf("%d %d", &b, &c)
 	_, _ = fmt.Scanf("%s", &s)

@@ -32,17 +32,17 @@ func SumEachDomainHierarchy(pairs []Pair) map[string]int {
 	for _, pair := range pairs {
 		levelDomains := strings.Split(pair.K, ".")
 		size := len(levelDomains)
+
 		for i := range levelDomains {
 			domain := levelDomains[size-i-1:]
 			target := strings.Join(domain, ".")
 			count, ok := m[target]
+
 			if ok {
 				m[target] = count + pair.V
 			} else {
 				m[target] = pair.V
 			}
-
-			//fmt.Printf("%v => %s: %d\n", levelDomains, target, m[target])
 		}
 	}
 

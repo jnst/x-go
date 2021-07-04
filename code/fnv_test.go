@@ -7,7 +7,6 @@ import (
 )
 
 func TestHash(t *testing.T) {
-
 	type TextTest struct {
 		in  string
 		out uint32
@@ -26,5 +25,4 @@ func TestHash(t *testing.T) {
 			t.Errorf("Hash(%s) = %d want %d", test.in, got, test.out)
 		}
 	}
-
 }

@@ -18,8 +18,8 @@ func NewServer(handler func(w http.ResponseWriter, r *http.Request)) Server {
 // Run runs server.
 func (s Server) Run() {
 	fmt.Println("[server] running..")
-
 	http.HandleFunc("/", s.handler)
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}

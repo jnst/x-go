@@ -13,5 +13,6 @@ func TestList(t *testing.T) {
 			return
 		}
 	}
+
 	t.Errorf("%s not found.", expect)
 }
