@@ -3,9 +3,8 @@ package sample
 import (
 	"database/sql"
 	"fmt"
-	"log"
-
 	_ "github.com/go-sql-driver/mysql"
+	"log"
 )
 
 type Result struct {
@@ -27,13 +26,15 @@ func run() {
 
 	rows, err := db.Query("SELECT COUNT(*) FROM users") //
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
+		return
 	}
 
 	for rows.Next() {
 		result := Result{}
 		if err := rows.Scan(&result.count); err != nil {
-			log.Fatal(err)
+			log.Print(err)
+			return
 		}
 
 		log.Printf("count: %v", result.count)
