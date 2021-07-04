@@ -1,8 +1,9 @@
 package cmd
 
 import (
-	"github.com/jnst/x-go/aws/dynamodb"
 	"github.com/spf13/cobra"
+
+	"github.com/jnst/x-go/aws/dynamodb"
 )
 
 func init() {
