@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "lol/battle_field.proto";
+import "lol/champion.proto";
+
+package lol;
+option go_package = "proto/lol;lol";
+
+service LeagueOfLegends {
+  rpc GetChampion (GetChampionRequest) returns (GetChampionResponse);
+  rpc ListChampions (ListChampionsRequest) returns (ListChampionsResponse);
+  rpc GetBattleField (GetBattleFieldRequest) returns (GetBattleFieldResponse);
+}
+
+message GetChampionRequest {
+  int32 champion_id = 1;
+}
+
+message GetChampionResponse {
+  champion.Champion champion = 1;
+}
+
+message ListChampionsRequest {
+}
+
+message ListChampionsResponse {
+  repeated champion.Champion champions = 1;
+}
+
+message GetBattleFieldRequest {
+}
+
+message GetBattleFieldResponse {
+  battle_field.BattleField battle_field = 1;
+}

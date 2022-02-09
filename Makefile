@@ -1,4 +1,4 @@
-.PHONY: fmt lint test
+.PHONY: fmt lint test gen
 
 fmt:
 	go fmt ./...
@@ -10,3 +10,11 @@ lint:
 
 test:
 	go test -v ./...
+
+gen:
+	protoc -I grpcapp/internal/proto \
+		--go_out=grpcapp/internal/gen \
+		--go_opt=paths=source_relative \
+		--go-grpc_out=grpcapp/internal/gen \
+		--go-grpc_opt=paths=source_relative \
+		grpcapp/internal/proto/**/*.proto

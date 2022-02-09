@@ -17,6 +17,8 @@ func Execute() {
 		atcoderCmd,
 		awsCmd,
 		factorialCmd,
+		grpcClientCmd,
+		grpcServerCmd,
 		mysqlCmd,
 		slackCmd,
 		solanaCmd,
