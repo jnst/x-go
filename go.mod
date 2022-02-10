@@ -4,6 +4,7 @@ require (
 	code.cloudfoundry.org/bytefmt v0.0.0-20211005130812-5bb3c17173e5
 	github.com/aws/aws-sdk-go v1.27.0
 	github.com/go-sql-driver/mysql v1.4.1
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.5
 	github.com/gorilla/websocket v1.4.1 // indirect
 	github.com/labstack/gommon v0.3.1

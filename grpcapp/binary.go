@@ -2,19 +2,23 @@ package grpcapp
 
 import (
 	"bytes"
-	"encoding/binary"
 	"encoding/gob"
-
 	bytefmt "github.com/labstack/gommon/bytes"
+	"google.golang.org/protobuf/proto"
 )
 
 func binarySize(val interface{}) string {
+	if message, ok := val.(proto.Message); ok {
+		if b, err := proto.Marshal(message); err == nil {
+			return bytefmt.Format(int64(len(b)))
+		}
+	}
+
 	var buff bytes.Buffer
 	enc := gob.NewEncoder(&buff)
 	err := enc.Encode(val)
 	if err != nil {
 		return "0B"
 	}
-	size := binary.Size(buff.Bytes())
-	return bytefmt.Format(int64(size))
+	return bytefmt.Format(int64(len(buff.Bytes())))
 }
