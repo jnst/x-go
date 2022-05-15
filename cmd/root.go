@@ -16,6 +16,7 @@ func Execute() {
 	rootCmd.AddCommand(
 		atcoderCmd,
 		awsCmd,
+		datadogCmd,
 		factorialCmd,
 		grpcClientCmd,
 		grpcServerCmd,
