@@ -25,6 +25,7 @@ func Execute() {
 		solanaCmd,
 		sortCmd,
 		uidCmd,
+		zapCmd,
 	)
 
 	if err := rootCmd.Execute(); err != nil {

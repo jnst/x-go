@@ -5,11 +5,20 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-// MustCreateLogger creates logger.
-func CreateLogger() *zap.SugaredLogger {
-	level := zap.NewAtomicLevel()
-	level.SetLevel(zapcore.DebugLevel)
-	// zapcore
+// CreateSugaredLogger creates sugared logger.
+func CreateSugaredLogger() *zap.SugaredLogger {
+	logger, _ := createZapConfig()
+	return logger.Sugar()
+}
+
+// CreateLogger creates logger.
+func CreateLogger() *zap.Logger {
+	logger, _ := createZapConfig()
+	return logger
+}
+
+func createZapConfig() (*zap.Logger, error) {
+	level := zap.NewAtomicLevelAt(zapcore.DebugLevel)
 	config := zap.Config{
 		Level:    level,
 		Encoding: "console",
@@ -27,7 +36,5 @@ func CreateLogger() *zap.SugaredLogger {
 		OutputPaths:      []string{"stdout"},
 		ErrorOutputPaths: []string{"stderr"},
 	}
-	logger, _ := config.Build()
-
-	return logger.Sugar()
+	return config.Build()
 }
